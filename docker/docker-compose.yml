@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  mecab_converter:
+    build:
+      context: ../
+      dockerfile: ./docker/golang/Dockerfile
+    tty: true
+    ports:
+    - "8080:8080"
+    volumes:
+      - ../application:/go/src/pig_allowance_book_core/application
+
