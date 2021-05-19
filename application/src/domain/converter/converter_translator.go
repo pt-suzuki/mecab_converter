@@ -30,6 +30,12 @@ func (t *translator) TranslateNodeToString(node *mecab.Node) string {
 	var key string
 	for {
 		features := strings.Split(node.Feature(), ",")
+		if len(features) < 9 {
+			if node.Next() != nil {
+				break
+			}
+			continue
+		}
 		key = key + features[7]
 		if node.Next() != nil {
 			break

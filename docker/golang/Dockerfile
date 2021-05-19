@@ -33,9 +33,10 @@ RUN apk update && \
 WORKDIR /go/src/mecab_converter/application
 
 COPY ./application .
-RUN chmod 744 ./start.sh
+RUN chmod 744 ./build.sh
 
 EXPOSE 8080
+RUN sh ./build.sh
 
-CMD ["sh", "./start.sh"]
+CMD ["./main"]
 
